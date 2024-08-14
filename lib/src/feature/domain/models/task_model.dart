@@ -2,7 +2,7 @@
 class TaskModel {
   int? id;
   String? title;
-  bool? isCompleted;
+  int? isCompleted;
   String? created;
 
   TaskModel({this.id, this.title, this.isCompleted, this.created});

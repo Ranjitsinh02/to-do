@@ -35,7 +35,7 @@ class DatabaseProvider {
     await database.execute("CREATE TABLE $taskTABLE ("
         "id INTEGER PRIMARY KEY AUTOINCREMENT, "
         "title TEXT, "
-        "description TEXT, "
+        "isCompleted INTEGER, "
         "created TEXT "
         ")"
     );

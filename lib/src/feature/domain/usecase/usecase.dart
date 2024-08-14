@@ -1,5 +1,5 @@
 import 'package:sqflite/sqflite.dart';
-import 'package:to_do_list/src/core/helper/db_helper.dart';
+import 'package:to_do_list/src/feature/data/data_source/local/db_helper.dart';
 import 'package:to_do_list/src/feature/domain/models/task_model.dart';
 
 
@@ -28,12 +28,13 @@ class TaskDao {
             columns: columns, where: 'title LIKE ?', whereArgs: ["%$query%"]);
       }
     } else {
-      result = await db.query(taskTABLE, columns: columns, orderBy: 'id DESC');
+      result = await db.query(taskTABLE, columns: columns, orderBy: 'isCompleted ASC');
     }
 
     List<TaskModel> task = result.isNotEmpty
         ? result.map((item) => TaskModel.fromDatabaseJson(item)).toList()
         : [];
+
     return task;
   }
 
